@@ -11,9 +11,12 @@ import store from './store/store'
 import 'iview/dist/styles/iview.css'
 import './assets/css/grape_common.css'
 import { msgHandler } from './libs/fn.js'
+import VueCookies from 'vue-cookies'
+
 
 Vue.use(iView)
 Vue.use(VueAxios, axios)
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false
 
@@ -21,10 +24,8 @@ axios.defaults.timeout = 300000
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start();
-  cookies.set('isLogin', true);
-  console.log(cookies.getJSON('isLogin'));
   if (to.meta.requiresAuth) {
-		if(cookies.getJSON('isLogin')) {
+		if(VueCookies.get('loggedIn') === 'true') {
       next();
 		}else {
 			next({

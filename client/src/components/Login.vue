@@ -60,17 +60,15 @@
                 }
                 this.$refs[name].validate((valid) => {
                     if (valid) {
-                      debugger;
                       if(this.formCustom.username == 'admin' && this.formCustom.passwd == 'admin') {
-                        cookies.set('isLogin', true);
+                        this.$cookies.set('loggedIn','true', '1M'); // 保存30天
                         let redirect = decodeURIComponent(this.$route.query.redirect);
-                        console.log(redirect);
                         this.$router.push({
                             path: redirect
                         });
                       }else {
                         msgHandler('error', '帐号或者密码有误，请重新输入', this);
-                        cookies.remove('isLogin');
+                        this.$cookies.remove('loggedIn');
                       }
                     } else {
                         this.$Message.destroy();
