@@ -7,7 +7,7 @@ import Hello from '@/components/Hello'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   base: '/',
   scrollBehavior: () => ({y: 0}),
   routes: [
