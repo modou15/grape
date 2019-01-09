@@ -11,7 +11,7 @@
     "build": "node build/build.js"
   },
   "pre-commit": [
-      "lint"
+    "lint"
   ],
   "dependencies": {
     "vue": "^2.5.2",
