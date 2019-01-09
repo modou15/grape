@@ -1,7 +1,7 @@
 <template>
     <div id="home_wrap">
         <div :class="['slide-btn', { 'opa-0': hideBtn }]" @click="packSidebar" v-show="!isPandian">
-            <Icon :class="['btn-icon', { pack: isPack }]" type="chevron-left"></Icon>
+            <Icon :class="['btn-icon', { pack: isPack }]" type="chevron-left" />
         </div>
         <div :class="['layout', { 'side-to-left': isPack }]">
             <div class="sidebar" v-show="!isPandian">
@@ -103,245 +103,244 @@
                 menu: {
                     activeName: '',
                     openNames: [],
-                    subMenu: [],
-                    // subMenu: [
-                    //     {
-                    //         type: 'help-buoy',
-                    //         name: '欢迎',
-                    //         link: '/hello'
-                    //     },
-                    //     {
-                    //         type: 'ios-pricetag',
-                    //         name: '基础资料管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '基础资料单元',
-                    //                 link: '/baseinfomanage/unit'
-                    //             },
-                    //             {
-                    //                 name: '销售单元-仓储单元关系',
-                    //                 link: '/baseinfomanage/sku2stock'
-                    //             },
-                    //             {
-                    //                 name: '仓储单元-配件关系',
-                    //                 link: '/baseinfomanage/stock2parts'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'filing',
-                    //         name: '商品管理',
-                    //         subtitle: [
-                    //             // {
-                    //             //     name: '组合型销售单元',
-                    //             //     link: '/goodsmanage/suitesku'
-                    //             // },
-                    //             {
-                    //                 name: '销售单元图片管理',
-                    //                 link: '/goodsmanage/skuimg'
-                    //             },
-                    //             {
-                    //                 name: '计划发货时间管理',
-                    //                 link: '/goodsmanage/plandeliverytime',
-                    //                 clink: ['/goodsmanage/plandeliverytime', '/goodsmanage/plandeliverytimecompose']
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'paper-airplane',
-                    //         name: '订单管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '订单',
-                    //                 link: '/order/orderlist',
-                    //                 clink: ['/order/orderdetail']
-                    //             },
-                    //             {
-                    //                 name: '售后列表',
-                    //                 link: '/order/afterselllist'
-                    //             },
-                    //             {
-                    //                 name: '售后详情',
-                    //                 link: '/order/customerservice'
-                    //             },
-                    //             {
-                    //                 name: '可换货商品管理',
-                    //                 link: '/order/canchangegoods'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'ionic',
-                    //         name: '仓库管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '库存表',
-                    //                 link: '/stockmanage/stocktable'
-                    //             },
-                    //             {
-                    //                 name: '发货出库',
-                    //                 type: 'briefcase',
-                    //                 children: [
-                    //                     {
-                    //                         name: '待发货处理',
-                    //                         link: '/stockmanage/pendingdelihandle'
-                    //                     },
-                    //                     {
-                    //                         name: '出库',
-                    //                         link: '/stockmanage/outstock?state=0',
-                    //                         clink: ['/stockmanage/outstocktransfer', '/stockmanage/outstockrepair']
-                    //                     },
-                    //                     {
-                    //                         name: '拣货汇总',
-                    //                         link: '/stockmanage/stockpiking?state=1'
-                    //                     }
-                    //                 ]
-                    //             },
-                    //             {
-                    //                 name: '收货入库',
-                    //                 type: 'briefcase',
-                    //                 children: [
-                    //                     // {
-                    //                     //     name: '仓库待提货',
-                    //                     //     link: '/stockmanage/pendingdelivery'
-                    //                     // },
-                    //                     {
-                    //                         name: '入库',
-                    //                         link: '/stockmanage/instock?state=0'
-                    //                     }
-                    //                 ]
-                    //             },
-                    //             {
-                    //                 name: '盘点',
-                    //                 link: '/stockmanage/checkstock',
-                    //                 clink: ['/stockmanage/checkstockcreate','/stockmanage/checkstockdetail']
-                    //             },
-                    //             // {
-                    //             //     name: '组装拆卸',
-                    //             //     type: 'briefcase',
-                    //             //     children: [
-                    //             //         {
-                    //             //             name: '拆卸',
-                    //             //             link: '/stockmanage/disassemble',
-                    //             //             clink: ['/stockmanage/disassembleone','/stockmanage/disassembletwo', '/stockmanage/disassemblethree']
-                    //             //         },
-                    //             //         {
-                    //             //             name: '组装',
-                    //             //             link: '/stockmanage/assemble',
-                    //             //             clink: ['/stockmanage/assembleone','/stockmanage/assembletwo', '/stockmanage/assemblethree']
-                    //             //         }
-                    //             //     ]
-                    //             // },
-                    //             {
-                    //                 name: '移库',
-                    //                 link: '/stockmanage/movestock?state=0',
-                    //                 clink: ['/stockmanage/movestepone','/stockmanage/movesteptwo']
-                    //             },
-                    //             {
-                    //                 name: '仓库货品状态转换',
-                    //                 link: '/stockmanage/goodsstatetransition'
-                    //             },
-                    //             {
-                    //                 name: '库存变更记录',
-                    //                 link: `/stockmanage/stockchangerecord?ctime=${normalTime((new Date().getTime() - 30 * 24 * 60 * 60 * 1000), 'ymd')},${normalTime(new Date().getTime() + 1000 * 60 * 60 *24, 'ymd')}`
-                    //             },
-                    //             {
-                    //                 name: '仓库和货位管理',
-                    //                 type: 'briefcase',
-                    //                 children: [
-                    //                     {
-                    //                         name: '仓库管理',
-                    //                         link: '/stockmanage/stocklist'
-                    //                     },
-                    //                     {
-                    //                         name: '货位管理',
-                    //                         link: '/stockmanage/goodsallowlist'
-                    //                     }
-                    //                 ]
-                    //             },
-                    //             {
-                    //                 name: '物料运输方式管理',
-                    //                 link: '/stockmanage/goodstransport'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'briefcase',
-                    //         name: '采购管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '采购单',
-                    //                 link: '/purchasemanage/list',
-                    //                 clink: ['/purchasemanage/create','/purchasemanage/detail']
-                    //             },
-                    //             {
-                    //                 name: '验收单',
-                    //                 link: '/purchasemanage/acceptance'
-                    //             },
-                    //             // {
-                    //             //     name: '工厂待提货',
-                    //             //     link: '/purchasemanage/facpendingdelivery'
-                    //             // },
-                    //             {
-                    //                 name: '入厂单',
-                    //                 link: '/purchasemanage/infactory'
-                    //             },
-                    //             {
-                    //                 name: '归库单',
-                    //                 link: '/purchasemanage/transferorder',
-                    //                 clink: ['/purchasemanage/transferorder/detail']
-                    //             },
-                    //             {
-                    //                 name: '工厂库存表',
-                    //                 link: '/purchasemanage/factorystocktable'
-                    //             },
-                    //             {
-                    //                 name: '供应商管理',
-                    //                 link: '/purchasemanage/supplier'
-                    //             },
-                    //             {
-                    //                 name: '采购物料管理',
-                    //                 link: '/purchasemanage/purmateriel'
-                    //             }
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'pie-graph',
-                    //         name: '门店销售管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '门店订单列表',
-                    //                 link: '/system/morderlist'
-                    //             },
-                    //             {
-                    //                 name: '门店订单草稿',
-                    //                 link: '/system/sorderlist'
-                    //             },
-                    //             {
-                    //                 name: '门店管理',
-                    //                 link: '/system/store'
-                    //             },
-                    //             {
-                    //                 name: '门店员工管理',
-                    //                 link: '/system/sstaff'
-                    //             },
-                    //         ]
-                    //     },
-                    //     {
-                    //         type: 'briefcase',
-                    //         name: '系统管理',
-                    //         subtitle: [
-                    //             {
-                    //                 name: '用户管理',
-                    //                 link: '/system/usermanage'
-                    //             },
-                    //             {
-                    //                 name: '角色权限管理',
-                    //                 link: '/system/permission'
-                    //             }
-                    //         ]
-                    //     }
-                    // ]
+                    subMenu: [
+                        {
+                            type: 'help-buoy',
+                            name: '欢迎',
+                            link: '/hello'
+                        },
+                        {
+                            type: 'ios-pricetag',
+                            name: '基础资料管理',
+                            subtitle: [
+                                {
+                                    name: '基础资料单元',
+                                    link: '/baseinfomanage/unit'
+                                },
+                                {
+                                    name: '销售单元-仓储单元关系',
+                                    link: '/baseinfomanage/sku2stock'
+                                },
+                                {
+                                    name: '仓储单元-配件关系',
+                                    link: '/baseinfomanage/stock2parts'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'filing',
+                            name: '商品管理',
+                            subtitle: [
+                                // {
+                                //     name: '组合型销售单元',
+                                //     link: '/goodsmanage/suitesku'
+                                // },
+                                {
+                                    name: '销售单元图片管理',
+                                    link: '/goodsmanage/skuimg'
+                                },
+                                {
+                                    name: '计划发货时间管理',
+                                    link: '/goodsmanage/plandeliverytime',
+                                    clink: ['/goodsmanage/plandeliverytime', '/goodsmanage/plandeliverytimecompose']
+                                }
+                            ]
+                        },
+                        {
+                            type: 'paper-airplane',
+                            name: '订单管理',
+                            subtitle: [
+                                {
+                                    name: '订单',
+                                    link: '/order/orderlist',
+                                    clink: ['/order/orderdetail']
+                                },
+                                {
+                                    name: '售后列表',
+                                    link: '/order/afterselllist'
+                                },
+                                {
+                                    name: '售后详情',
+                                    link: '/order/customerservice'
+                                },
+                                {
+                                    name: '可换货商品管理',
+                                    link: '/order/canchangegoods'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'ionic',
+                            name: '仓库管理',
+                            subtitle: [
+                                {
+                                    name: '库存表',
+                                    link: '/stockmanage/stocktable'
+                                },
+                                {
+                                    name: '发货出库',
+                                    type: 'briefcase',
+                                    children: [
+                                        {
+                                            name: '待发货处理',
+                                            link: '/stockmanage/pendingdelihandle'
+                                        },
+                                        {
+                                            name: '出库',
+                                            link: '/stockmanage/outstock?state=0',
+                                            clink: ['/stockmanage/outstocktransfer', '/stockmanage/outstockrepair']
+                                        },
+                                        {
+                                            name: '拣货汇总',
+                                            link: '/stockmanage/stockpiking?state=1'
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: '收货入库',
+                                    type: 'briefcase',
+                                    children: [
+                                        // {
+                                        //     name: '仓库待提货',
+                                        //     link: '/stockmanage/pendingdelivery'
+                                        // },
+                                        {
+                                            name: '入库',
+                                            link: '/stockmanage/instock?state=0'
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: '盘点',
+                                    link: '/stockmanage/checkstock',
+                                    clink: ['/stockmanage/checkstockcreate','/stockmanage/checkstockdetail']
+                                },
+                                // {
+                                //     name: '组装拆卸',
+                                //     type: 'briefcase',
+                                //     children: [
+                                //         {
+                                //             name: '拆卸',
+                                //             link: '/stockmanage/disassemble',
+                                //             clink: ['/stockmanage/disassembleone','/stockmanage/disassembletwo', '/stockmanage/disassemblethree']
+                                //         },
+                                //         {
+                                //             name: '组装',
+                                //             link: '/stockmanage/assemble',
+                                //             clink: ['/stockmanage/assembleone','/stockmanage/assembletwo', '/stockmanage/assemblethree']
+                                //         }
+                                //     ]
+                                // },
+                                {
+                                    name: '移库',
+                                    link: '/stockmanage/movestock?state=0',
+                                    clink: ['/stockmanage/movestepone','/stockmanage/movesteptwo']
+                                },
+                                {
+                                    name: '仓库货品状态转换',
+                                    link: '/stockmanage/goodsstatetransition'
+                                },
+                                {
+                                    name: '库存变更记录',
+                                    link: `/stockmanage/stockchangerecord?ctime=${normalTime((new Date().getTime() - 30 * 24 * 60 * 60 * 1000), 'ymd')},${normalTime(new Date().getTime() + 1000 * 60 * 60 *24, 'ymd')}`
+                                },
+                                {
+                                    name: '仓库和货位管理',
+                                    type: 'briefcase',
+                                    children: [
+                                        {
+                                            name: '仓库管理',
+                                            link: '/stockmanage/stocklist'
+                                        },
+                                        {
+                                            name: '货位管理',
+                                            link: '/stockmanage/goodsallowlist'
+                                        }
+                                    ]
+                                },
+                                {
+                                    name: '物料运输方式管理',
+                                    link: '/stockmanage/goodstransport'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'briefcase',
+                            name: '采购管理',
+                            subtitle: [
+                                {
+                                    name: '采购单',
+                                    link: '/purchasemanage/list',
+                                    clink: ['/purchasemanage/create','/purchasemanage/detail']
+                                },
+                                {
+                                    name: '验收单',
+                                    link: '/purchasemanage/acceptance'
+                                },
+                                // {
+                                //     name: '工厂待提货',
+                                //     link: '/purchasemanage/facpendingdelivery'
+                                // },
+                                {
+                                    name: '入厂单',
+                                    link: '/purchasemanage/infactory'
+                                },
+                                {
+                                    name: '归库单',
+                                    link: '/purchasemanage/transferorder',
+                                    clink: ['/purchasemanage/transferorder/detail']
+                                },
+                                {
+                                    name: '工厂库存表',
+                                    link: '/purchasemanage/factorystocktable'
+                                },
+                                {
+                                    name: '供应商管理',
+                                    link: '/purchasemanage/supplier'
+                                },
+                                {
+                                    name: '采购物料管理',
+                                    link: '/purchasemanage/purmateriel'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'pie-graph',
+                            name: '门店销售管理',
+                            subtitle: [
+                                {
+                                    name: '门店订单列表',
+                                    link: '/system/morderlist'
+                                },
+                                {
+                                    name: '门店订单草稿',
+                                    link: '/system/sorderlist'
+                                },
+                                {
+                                    name: '门店管理',
+                                    link: '/system/store'
+                                },
+                                {
+                                    name: '门店员工管理',
+                                    link: '/system/sstaff'
+                                },
+                            ]
+                        },
+                        {
+                            type: 'briefcase',
+                            name: '系统管理',
+                            subtitle: [
+                                {
+                                    name: '用户管理',
+                                    link: '/system/usermanage'
+                                },
+                                {
+                                    name: '角色权限管理',
+                                    link: '/system/permission'
+                                }
+                            ]
+                        }
+                    ]
                 },
                 breadCrumbItem: [],
                 messageCount: 0,
@@ -440,64 +439,51 @@
         },
         methods: {
             getPerms() {
-                handleRequest('get', '/api/sys/perms/get', null, res => {
-                    let _data = res.data;
-                    // console.log(deepCopy(_data))
-                    if(_data.success) {
-                        this.menu.subMenu = _data.subMenu;
-                        // console.log(deepCopy(this.menu.subMenu))
-                        // 得到所有链接
-                        let linkArr = [],
-                            nowPath = this.$route.path;
-                        this.menu.subMenu.forEach(one => {
-                            // .match(/.*\/([^?]*)/)[0]
-                            if(one.link) {
-                                linkArr.push(one.link.match(/.*\/([^?]*)/)[0]); // 取得不含参数和哈希的path
+                // 得到所有链接
+                let linkArr = [],
+                    nowPath = this.$route.path;
+                this.menu.subMenu.forEach(one => {
+                    // .match(/.*\/([^?]*)/)[0]
+                    if(one.link) {
+                        linkArr.push(one.link.match(/.*\/([^?]*)/)[0]); // 取得不含参数和哈希的path
+                    }
+                    if(one.subtitle && one.subtitle.length > 0) {
+                        one.subtitle.forEach(two => {
+                            if(two.link) {
+                                linkArr.push(two.link.match(/.*\/([^?]*)/)[0]);
                             }
-                            if(one.subtitle && one.subtitle.length > 0) {
-                                one.subtitle.forEach(two => {
-                                    if(two.link) {
-                                        linkArr.push(two.link.match(/.*\/([^?]*)/)[0]);
+                            if(two.clink && two.clink.length > 0) {
+                                two.clink.forEach(x => linkArr.push(x.match(/.*\/([^?]*)/)[0]));
+                            }
+                            if(two.children && two.children.length > 0) {
+                                two.children.forEach(x => {
+                                    if(x.link) {
+                                        linkArr.push(x.link.match(/.*\/([^?]*)/)[0]);
                                     }
-                                    if(two.clink && two.clink.length > 0) {
-                                        two.clink.forEach(x => linkArr.push(x.match(/.*\/([^?]*)/)[0]));
-                                    }
-                                    if(two.children && two.children.length > 0) {
-                                        two.children.forEach(x => {
-                                            if(x.link) {
-                                                linkArr.push(x.link.match(/.*\/([^?]*)/)[0]);
-                                            }
-                                            if(x.clink) {
-                                                x.clink.forEach(child => linkArr.push(child.match(/.*\/([^?]*)/)[0]));
-                                            }
-                                        });
+                                    if(x.clink) {
+                                        x.clink.forEach(child => linkArr.push(child.match(/.*\/([^?]*)/)[0]));
                                     }
                                 });
                             }
                         });
-                        // 如果没有权限，就跳转到欢迎页
-                        if(!this.notForbidArr.includes(nowPath) && !linkArr.includes(nowPath) && nowPath !== '/' && nowPath !== '/login') {
-                            this.$router.replace('/hello');
-                            msgHandler('warning', '您没有该权限', this, 5);
-                        }
-                        this.linkArr = linkArr;
-                        this.$store.dispatch('savePerms', {
-                            notForbidArr: this.notForbidArr,
-                            linkArr: this.linkArr
-                        });
-                        this.refreshBraedCrumbItem();
-                        this.logName = this.$cookies.get('logName');
-                        // setInterval(this.getMessageCount, 300000);
-                        if(this.goPerm) {
-                            this.$store.dispatch('backPerm');
-                        }
-                    } else {
-                        msgHandler('error', _data.msg , this);
                     }
-                }, err => {
-                    msgHandler('error', '菜单请求失败请刷新页面', this);
-                    console.log(err);
                 });
+                // 如果没有权限，就跳转到欢迎页
+                if(!this.notForbidArr.includes(nowPath) && !linkArr.includes(nowPath) && nowPath !== '/' && nowPath !== '/login') {
+                    this.$router.replace('/hello');
+                    msgHandler('warning', '您没有该权限', this, 5);
+                }
+                this.linkArr = linkArr;
+                this.$store.dispatch('savePerms', {
+                    notForbidArr: this.notForbidArr,
+                    linkArr: this.linkArr
+                });
+                this.refreshBraedCrumbItem();
+                this.logName = this.$cookies.get('logName');
+                // setInterval(this.getMessageCount, 300000);
+                if(this.goPerm) {
+                    this.$store.dispatch('backPerm');
+                }
             },
             // 控制表头固定
             handleScroll() {
