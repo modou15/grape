@@ -1,0 +1,15 @@
+export const SAVE_ALL_TAGS = 'SAVE_ALL_TAGS';
+export const UPDATE_TAG = 'UPDATE_TAG';
+export const RESET_UPDATE_TAG = 'RESET_UPDATE_TAG';
+export const SET_MENU = 'SET_MENU';
+export const RESET_SET_MENU = 'RESET_SET_MENU';
+export const FIX_HEADER = 'FIX_HEADER';
+export const NO_FIX_HEADER = 'NO_FIX_HEADER';
+export const SAVE_HEADER_SIZE = 'SAVE_HEADER_SIZE';
+export const STORE_LOGOUT = 'STORE_LOGOUT';
+export const CHANGE_TO_WIN = 'CHANGE_TO_WIN';
+export const SAVE_PERMS = 'SAVE_PERMS';
+export const TO_GET_PERMS = 'TO_GET_PERMS';
+export const BACK_PERM = 'BACK_PERM';
+export const SHOW_HOME_LOADING = 'SHOW_HOME_LOADING';
+export const HIDE_HOME_LOADING = 'HIDE_HOME_LOADING';
